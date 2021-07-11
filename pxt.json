@@ -3,7 +3,7 @@
     "description": "",
     "dependencies": {
         "device": "*",
-        "maze-extension": "github:xirishi0/maze-extension#v0.1.2"
+        "maze-extension": "github:cubicbird/maze-extension#v0.1.2"
     },
     "files": [
         "main.blocks",
