@@ -26,6 +26,10 @@ namespace playground_helpers {
 
     export function randomWeapon() :string {
         let registeredWeapons = Object.keys(IntegrateGame.defExtSprite[Helper.extSpriteKind.Weapon])
+
+        for (let k of registeredWeapons) {
+            console.log(k)
+        }
         return registeredWeapons[randint(0, registeredWeapons.length - 1)]
     }
 } 
