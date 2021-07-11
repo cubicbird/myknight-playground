@@ -1,25 +1,3 @@
-function randomshoot (sprite: Sprite, n: number, amn: number, offset: number, delay: number, projectile: string, smn: number, k: number, amx: number, smx: number, d: number) {
-    if (k > 0) {
-        for (let index = 0; index <= n; index++) {
-            Bullet.shoot(sprite, projectile, sprite.x, sprite.y, randint(amn, amx) + index * offset, randint(smn, smx), d)
-        }
-        Helper.after(delay, function () {
-            randomshoot(sprite, n, amn + offset, offset, delay, projectile, smn, k - 1, amx, smx, d)
-        })
-    }
-}
-
-function multishoot (sprite: Sprite, n: number, a: number, offset: number, delay: number, projectile: string, s: number, k: number, sadd1: number, sadd2: number) {
-    if (k > 0) {
-        for (let index2 = 0; index2 <= n; index2++) {
-            Bullet.shoot(sprite, projectile, sprite.x, sprite.y, a + index2 * (360 / n), s + index2 * sadd1)
-        }
-        Helper.after(delay, function () {
-            multishoot(sprite, n, a + offset, offset, delay, projectile, s + sadd2, k - 1, sadd1, sadd2)
-        })
-    }
-}
-
 Bullet.bulletOverlap("幽灵粒子", Bullet.overlapKind.two, function (projectile, otherSprite) {
     otherSprite.say("好痛", 500)
     Bullet.setHp(otherSprite, -1)
@@ -1065,37 +1043,29 @@ Enemy.setEnemy(img`
         ........................
         `])
     Enemy.addSKill(enemy, Enemy.sKind.skill, function (tempVar, sprite) {
-        multishoot(sprite, 6, 0, 45, 0.2, "幽灵粒子", 75, 2, 0, 0)
-        multishoot(sprite, 6, 45, 45, 0.2, "幽灵粒子", 60, 2, 0, 0)
+        playground_helpers.multishoot(sprite, 6, 0, 45, 0.2, "幽灵粒子", 75, 2, 0, 0)
+        playground_helpers.multishoot(sprite, 6, 45, 45, 0.2, "幽灵粒子", 60, 2, 0, 0)
     })
     Enemy.addSKill(enemy, Enemy.sKind.skill, function (tempVar, sprite) {
-        randomshoot(sprite, 2, -15, 15, 0.2, "瞄准幽灵粒子", 80, 6, 15, 95, 0)
+        playground_helpers.randomshoot(sprite, 2, -15, 15, 0.2, "瞄准幽灵粒子", 80, 6, 15, 95, 0)
     })
     Enemy.addSKill(enemy, Enemy.sKind.skill, function (tempVar, sprite) {
-        randomshoot(sprite, 8, 0, 15, 0.5, "追踪幽灵粒子", 55, 2, 360, 65, 0)
+        playground_helpers.randomshoot(sprite, 8, 0, 15, 0.5, "追踪幽灵粒子", 55, 2, 360, 65, 0)
     })
     Enemy.addSKill(enemy, Enemy.sKind.skill, function (tempVar, sprite) {
-        randomshoot(sprite, 8, 0, 15, 0.2, "地雷幽灵粒子", 0, 1, 360, 0, 30)
+        playground_helpers.randomshoot(sprite, 8, 0, 15, 0.2, "地雷幽灵粒子", 0, 1, 360, 0, 30)
     })
     Enemy.addSKill(enemy, Enemy.sKind.skill, function (tempVar, sprite) {
-        multishoot(sprite, 6, 0, 15, 0.1, "空爆幽灵粒子", 75, 4, 0, 0)
+        playground_helpers.multishoot(sprite, 6, 0, 15, 0.1, "空爆幽灵粒子", 75, 4, 0, 0)
     })
     Enemy.addSKill(enemy, Enemy.sKind.skill, function (tempVar, sprite) {
-        randomshoot(sprite, 6, -5, 15, 0.2, "幽灵粒子", 80, 24, 5, 95, 0)
+        playground_helpers.randomshoot(sprite, 6, -5, 15, 0.2, "幽灵粒子", 80, 24, 5, 95, 0)
         Helper.after(1, function () {
-            randomshoot(sprite, 6, -5, -15, 0.2, "幽灵粒子", 80, 24, 5, 95, 0)
+            playground_helpers.randomshoot(sprite, 6, -5, -15, 0.2, "幽灵粒子", 80, 24, 5, 95, 0)
         })
     })
     Enemy.addSKill(enemy, Enemy.sKind.spoils, function (tempVar, sprite) {
-        if (Math.percentChance(60)) {
-            Enemy.dropWeapon(enemy, "小血瓶")
-        } else if (Math.percentChance(60)) {
-            Enemy.dropWeapon(enemy, "防护罩")
-        } else if (Math.percentChance(90)) {
-            Enemy.dropWeapon(enemy, "手枪")
-        } else {
-            Enemy.dropWeapon(enemy, "剑")
-        }
+        Enemy.dropWeapon(enemy, playground_helpers.randomWeapon())
     })
 })
 
@@ -2140,21 +2110,21 @@ Enemy.setEnemy(img`
         `])
     Enemy.addSKill(enemy, Enemy.sKind.skill, function (tempVar, sprite) {
         for (let index = 0; index < 2; index++) {
-            randomshoot(sprite, 2, -15, 15, 0.1, "幽灵粒子", 50, 3, 15, 75, 0)
+            playground_helpers.randomshoot(sprite, 2, -15, 15, 0.1, "幽灵粒子", 50, 3, 15, 75, 0)
         }
     })
     Enemy.addSKill(enemy, Enemy.sKind.skill, function (tempVar, sprite) {
-        multishoot(sprite, 6, 0, 15, 0.1, "幽灵粒子", 75, 4, 0, 0)
-        multishoot(sprite, 6, -15, -15, 0.1, "幽灵粒子", 75, 4, 0, 0)
+        playground_helpers.multishoot(sprite, 6, 0, 15, 0.1, "幽灵粒子", 75, 4, 0, 0)
+        playground_helpers.multishoot(sprite, 6, -15, -15, 0.1, "幽灵粒子", 75, 4, 0, 0)
     })
     Enemy.addSKill(enemy, Enemy.sKind.skill, function (tempVar, sprite) {
-        multishoot(sprite, 1, -5, 0, 0.1, "幽灵粒子", 75, 8, 0, 0)
-        multishoot(sprite, 1, 0, 0, 0.1, "幽灵粒子", 75, 8, 0, 0)
-        multishoot(sprite, 1, 5, 0, 0.1, "幽灵粒子", 75, 8, 0, 0)
+        playground_helpers.multishoot(sprite, 1, -5, 0, 0.1, "幽灵粒子", 75, 8, 0, 0)
+        playground_helpers.multishoot(sprite, 1, 0, 0, 0.1, "幽灵粒子", 75, 8, 0, 0)
+        playground_helpers.multishoot(sprite, 1, 5, 0, 0.1, "幽灵粒子", 75, 8, 0, 0)
     })
     Enemy.addSKill(enemy, Enemy.sKind.skill, function (tempVar, sprite) {
         for (let index = 0; index < 4; index++) {
-            multishoot(sprite, 1, randint(-45, 45), 3, 0.1, "幽灵粒子", 75, 3, 0, 5)
+            playground_helpers.multishoot(sprite, 1, randint(-45, 45), 3, 0.1, "幽灵粒子", 75, 3, 0, 5)
         }
     })
     Enemy.dropWeapon(enemy, "小血瓶", 20)

@@ -1,6 +1,5 @@
 Maze.setMaze(tilemap`级别3`, "幽灵迷宫", function () {
     Maze.bornPlaceCR(2, 2)
-    Maze.makeWeapon2("白板手枪", sprites.dungeon.darkGroundCenter)
     Maze.setMazeMonsters(function () {
         Maze.setMonstersMembers2("1幽灵", sprites.dungeon.darkGroundCenter)
         Maze.setMonstersMembers2("1幽灵持续", sprites.dungeon.darkGroundCenter)
@@ -13,7 +12,6 @@ Maze.setMaze(tilemap`级别3`, "幽灵迷宫", function () {
         Maze.setMonstersMembers2("大幽灵boss", sprites.dungeon.darkGroundCenter)
         Maze.setMonstersMembers2("3幽灵", sprites.dungeon.darkGroundCenter)
     })
-    Maze.makeWeapon2("枪", sprites.dungeon.darkGroundCenter)
     Maze.nextPortal2(sprites.dungeon.darkGroundCenter)
     Maze.nextMazeOfPortal(Maze.mazeKind.name, "幽灵迷宫")
 })
@@ -701,11 +699,11 @@ Weapon.setWeapons("武器", function () {
         Weapon.setWeaponP(weapon, Weapon.weaponP.damage, 0)
         Weapon.setWeaponP(weapon, Weapon.weaponP.cd, 800)
         Weapon.setWeaponP(weapon, Weapon.weaponP.angle, 45)
-        Weapon.setoffset(weapon, Character.dirKind.down, -3, 2)
-Weapon.setoffset(weapon, Character.dirKind.left, 0, 5)
-Weapon.setoffset(weapon, Character.dirKind.up, 3, 6)
-Weapon.setoffset(weapon, Character.dirKind.right, -2, 3)
-Weapon.weaponSkill(weapon, function (tempVar, sprite) {
+        Weapon.setoffset(weapon, Weapon.dirKind.down, -3, 2)
+        Weapon.setoffset(weapon, Weapon.dirKind.left, 0, 5)
+        Weapon.setoffset(weapon, Weapon.dirKind.up, 3, 6)
+        Weapon.setoffset(weapon, Weapon.dirKind.right, -2, 3)
+        Weapon.weaponSkill(weapon, function (tempVar, sprite) {
             Bullet.shoot(weapon, "手枪子弹", weapon.x, weapon.y, 0, 75, 20)
         })
     })
@@ -713,7 +711,7 @@ Weapon.weaponSkill(weapon, function (tempVar, sprite) {
 Player.createPlayer("冒险者", 4, 4)
 Maze.newRandomMaze()
 Bullet.bulletOverlap("手枪子弹", Bullet.overlapKind.two, function (projectile, otherSprite) {
-    Bullet.setHp(otherSprite, -1)
+    Bullet.setHp(otherSprite, -100)
     otherSprite.say("不痛", 500)
     Bullet.bulletOwn(projectile).say("打不动", 500)
 })

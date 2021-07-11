@@ -14,8 +14,6 @@ Enemy.setMonsters0(function () {
     Enemy.setMonsters("1幽灵", function (monster) {
         Enemy.addMember(monster, "幽灵", 1)
         Enemy.setMonstersV(monster, Enemy.msKind.occurrence_interval, 10)
-        // Enemy.randomMove(enemy, sprites.dungeon.darkGroundCenter)
-        // Enemy.followSprite(enemy, Player.getPlayer(), 50)
         Enemy.setActionM(monster, 1, function (enemy) {
             Enemy.randomAtk(enemy)
             Enemy.enemyMoveTo(enemy, Enemy.crORxy.xy, Player.getPlayer().x, Player.getPlayer().y)
