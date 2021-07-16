@@ -1,4 +1,4 @@
-Maze.setMaze(tilemap`级别3`, "幽灵迷宫", function () {
+Maze.setMaze(tilemap`幽灵迷宫`, "幽灵迷宫", function () {
     Maze.bornPlaceCR(2, 2)
     Maze.setMazeMonsters(function () {
         Maze.setMonstersMembers2("1幽灵", sprites.dungeon.darkGroundCenter)
@@ -13,7 +13,7 @@ Maze.setMaze(tilemap`级别3`, "幽灵迷宫", function () {
         Maze.setMonstersMembers2("3幽灵", sprites.dungeon.darkGroundCenter)
     })
     Maze.nextPortal2(sprites.dungeon.darkGroundCenter)
-    Maze.nextMazeOfPortal(Maze.mazeKind.name, "幽灵迷宫")
+    Maze.nextMazeOfPortal(Maze.mazeKind.random)
 })
 Player.setPlayer(img`
     . . . . . . f f f f . . . . . . 
