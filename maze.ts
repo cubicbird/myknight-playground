@@ -1,3 +1,20 @@
+Maze.setMaze(tilemap`级别3`, "幽灵迷宫", function () {
+    Maze.bornPlaceCR(2, 2)
+    Maze.setMazeMonsters(function () {
+        Maze.setMonstersMembers2("1幽灵", sprites.dungeon.darkGroundCenter)
+        Maze.setMonstersMembers2("1幽灵持续", sprites.dungeon.darkGroundCenter)
+    })
+    Maze.setMazeMonsters(function () {
+        Maze.setMonstersMembers2("3幽灵", sprites.dungeon.darkGroundCenter)
+    })
+    Maze.setMazeMonsters(function () {
+        Maze.setMonstersMembers2("我的幽灵", sprites.dungeon.darkGroundCenter)
+        Maze.setMonstersMembers2("大幽灵boss", sprites.dungeon.darkGroundCenter)
+        Maze.setMonstersMembers2("3幽灵", sprites.dungeon.darkGroundCenter)
+    })
+    Maze.nextPortal2(sprites.dungeon.darkGroundCenter)
+    Maze.nextMazeOfPortal(Maze.mazeKind.name, "幽灵迷宫")
+})
 Enemy.setMonsters0(function () {
     Enemy.setMonsters("我的幽灵", function (monster) {
         Enemy.addMember(monster, "幽灵", 1)
