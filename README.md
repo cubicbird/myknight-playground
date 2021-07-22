@@ -1,24 +1,46 @@
  
 
 
-> 在 [https://felixtsu.github.io/myknight-playground/](https://felixtsu.github.io/myknight-playground/) 打开此页面
+> 在 [https://cubicbird.github.io/myknight-playground/](https://cubicbird.github.io/myknight-playground/) 打开此页面
 
-## 用作扩展
+## 用作项目模版
 
-此仓库可以作为 **插件** 添加到 MakeCode 中。
+此仓库可以作为 **项目模版** 添加到 MakeCode 中。
 
 * 打开 [https://arcade.makecode.com/](https://arcade.makecode.com/)
 * 点击 **新项目**
 * 点击齿轮图标菜单下的 **扩展**
-* 搜索 **https://github.com/felixtsu/myknight-playground** 并导入
+* 搜索 **https://github.com/cubicbird/myknight-playground** 并导入
 
-## 编辑此项目 ![构建状态标志](https://github.com/felixtsu/myknight-playground/workflows/MakeCode/badge.svg)
 
-在 MakeCode 中编辑此仓库。
+## 开发
 
-* 打开 [https://arcade.makecode.com/](https://arcade.makecode.com/)
-* 点击 **导入**，然后点击 **导入 URL**
-* 粘贴 **https://github.com/felixtsu/myknight-playground** 并点击导入
+* 此项目已含有基础的迷宫、角色、武器、敌人等
+* 其中main.block中已经展示了迷宫、角色、武器、弹射物
+* 敌人、敌人小队等进阶内容进行了隐藏
+
+## 集成
+
+* 切换到Javascript
+* 将main.ts中默认内容删除（默认敌人、默认迷宫、默认武器等未做修改的内容)
+* 删除playground_helpers.startPlayground()的调用
+* 将剩余代码放入namespace myfighter\_[id]\_dlc.mod_name() 方法中并export
+* 发布项目获取arcade url
+* 在集成项目中以url加入
+* 如果有自定义地图，请看地图的引入
+
+## 地图的引入
+
+* 在编辑器中切换至资源页签
+* 删除所有没有使用的tilemap、tiles等内容
+* 获取 https://github.com/felixtsu/arcade-asset-merge-helper
+* 此时有两个文件需要merge: tilemap.g.jres | tilemap.g.ts
+* 其中tilemap.g.jres可以用过上面的arcade-asset-merge-helper下的merge.py处理，输出结果在result.jres中，直接对应复制
+* tilemap.g.ts需要进入ide里面做regex的替换，把tile0 - tile0x加项目前缀进行匹配替换
+
+
+## 编辑此项目 ![构建状态标志](https://github.com/cubicbird/myknight-playground/workflows/MakeCode/badge.svg)
+
 
 ## 积木块预览
 
