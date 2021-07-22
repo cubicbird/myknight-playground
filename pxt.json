@@ -2,8 +2,7 @@
     "name": "MyKnight.Playground",
     "description": "",
     "dependencies": {
-        "device": "*",
-        "maze-extension": "github:cubicbird/maze-extension#v0.1.7"
+        "device": "*"
     },
     "files": [
         "main.blocks",
@@ -19,6 +18,10 @@
     "testFiles": [
         "test.ts"
     ],
+    "testDependencies": {
+        "block-menu": "github:riknoll/arcade-custom-menu#v0.0.1",
+        "maze-extension": "github:cubicbird/maze-extension#v0.1.8"
+    },
     "targetVersions": {
         "branch": "v1.4.45",
         "tag": "v1.4.45",

@@ -708,8 +708,7 @@ Weapon.setWeapons("武器", function () {
         })
     })
 })
-Player.createPlayer("冒险者", 4, 4)
-Maze.newRandomMaze()
+playground_helpers.startPlayground()
 Bullet.bulletOverlap("手枪子弹", Bullet.overlapKind.two, function (projectile, otherSprite) {
     Bullet.setHp(otherSprite, -100)
     otherSprite.say("不痛", 500)
