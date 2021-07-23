@@ -14,7 +14,8 @@
         "maze.ts",
         "tilemap.g.jres",
         "tilemap.g.ts",
-        "playground_helpers.ts"
+        "playground_helpers.ts",
+        "enemy_ghost.ts"
     ],
     "testFiles": [
         "test.ts"
@@ -34,5 +35,5 @@
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
