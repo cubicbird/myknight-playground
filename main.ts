@@ -1,4 +1,5 @@
 Maze.setMaze(tilemap`幽灵迷宫`, "幽灵迷宫", function () {
+    Maze.setMazeInfo("朱古力", "有三波怪物，其中第三波是boss")
     Maze.bornPlaceCR(2, 2)
     Maze.setMazeMonsters(function () {
         Maze.setMonstersMembers2("1幽灵", sprites.dungeon.darkGroundCenter)
