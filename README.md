@@ -39,6 +39,10 @@
 * tilemap.g.ts需要进入ide里面做regex的替换，把tile0 - tile0x加项目前缀进行匹配替换
 
 
+## 编译到retropie
+* 用这个连接打开editor，下载后可以拿到elf文件 https://arcade.makecode.com/?hw=rpi&compile=rawELF#editor
+
+
 ## 编辑此项目 ![构建状态标志](https://github.com/cubicbird/myknight-playground/workflows/MakeCode/badge.svg)
 
 
