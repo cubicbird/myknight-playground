@@ -40,8 +40,8 @@ namespace playground_helpers {
     }
 
     function gamestart (character: string) {
-        Maze.newRandomMaze()
         Player.createPlayer(character, 2, 2)
+        Maze.newRandomMaze()
     }
 
     //%block="开始游戏"
